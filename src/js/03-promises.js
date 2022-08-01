@@ -12,7 +12,6 @@ let formData = {
 };
 
 //Listener
-refs.form.addEventListener('submit', onFormGetData);
 refs.form.addEventListener('submit', onFormSubmit);
 
 //Functions
