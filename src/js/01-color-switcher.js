@@ -11,16 +11,20 @@ refs.btnStop.addEventListener('click', onBtnStop);
 
 //Functions
 function onBtnStart() {
-  refs.btnStart.disabled = true;
+  btnDisabled(true);
   timerId = setInterval(() => {
     document.body.style.backgroundColor = getRandomHexColor();
   }, 1000);
 }
 function onBtnStop() {
-  refs.btnStart.disabled = false;
+  btnDisabled(false);
   clearInterval(timerId);
 }
 
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+}
+
+function btnDisabled(val) {
+  refs.btnStart.disabled = val;
 }

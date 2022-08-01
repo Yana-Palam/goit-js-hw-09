@@ -12,13 +12,14 @@ let formData = {
 };
 
 //Listener
-refs.form.addEventListener('input', onFormInput);
+refs.form.addEventListener('submit', onFormGetData);
 refs.form.addEventListener('submit', onFormSubmit);
 
 //Functions
-function onFormInput(evt) {
-  formData[evt.target.name] = Number(evt.target.value.trim());
-  // console.log(formData);
+function onFormGetData(evt) {
+  for (const key in formData) {
+    formData[key] = Number(evt.target.elements[key].value);
+  }
 }
 
 function onFormSubmit(evt) {

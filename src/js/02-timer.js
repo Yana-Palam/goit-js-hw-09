@@ -21,7 +21,7 @@ const options = {
     if (selectedDates[0].getTime() - Date.now() < 0) {
       Notify.failure('Please choose a date in the future');
     } else {
-      refs.btnStart.disabled = false;
+      btnDisabled(false);
     }
   },
 };
@@ -42,7 +42,7 @@ function onBtnStartClick() {
     }
     const convertTime = convertMs(deltaTime);
     updateTime(convertTime);
-    refs.btnStart.disabled = true;
+    btnDisabled(true);
   }, 1000);
 }
 
@@ -75,4 +75,8 @@ function convertMs(ms) {
 
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
+}
+
+function btnDisabled(val) {
+  refs.btnStart.disabled = val;
 }
