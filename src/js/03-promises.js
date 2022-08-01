@@ -16,14 +16,13 @@ refs.form.addEventListener('submit', onFormGetData);
 refs.form.addEventListener('submit', onFormSubmit);
 
 //Functions
-function onFormGetData(evt) {
+function onFormSubmit(evt) {
+  evt.preventDefault();
+
   for (const key in formData) {
     formData[key] = Number(evt.target.elements[key].value);
   }
-}
 
-function onFormSubmit(evt) {
-  evt.preventDefault();
   for (let i = 0; i < formData.amount; i += 1) {
     createPromise(i + 1, formData.delay)
       .then(({ position, delay }) => {
